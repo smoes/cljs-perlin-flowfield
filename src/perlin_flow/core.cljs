@@ -74,7 +74,7 @@
 
 
 (defn setup [height width]
-  (q/frame-rate 30)
+  (q/frame-rate 300)
   (q/color-mode :rgb)
   (q/background 127 10 32)
   (q/no-stroke)
@@ -93,7 +93,11 @@
 
 (defn draw-state [particles]
 
-  (when (= 600 (q/frame-count))
+  (when (= 300 (q/frame-count))
+    (println "Slowing down framerate")
+    (q/frame-rate 30))
+
+  (when (= 800 (q/frame-count))
     (println "Done drawing flow-field")
     (q/no-loop))
 
